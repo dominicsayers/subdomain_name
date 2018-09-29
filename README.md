@@ -36,6 +36,22 @@ Add this line to your application's Gemfile:
 gem 'subdomain_name'
 ```
 
+and `bundle`.
+
+You may find the bundler cannot install the `idn-ruby` gem because it depends on the `LibIDN` system library which may be missing. To install this library on Ubuntu, try
+
+    sudo apt-get install libidn11-dev
+
+On MacOS, try
+
+    brew install libidn
+
+This library handles international subdomain names.
+
+## International domains
+
+Domain names can include Unicode characters, e.g. räksmörgås.com. To validate these we can transform them into a format called [Punycode](https://en.wikipedia.org/wiki/Punycode). This is done by gem called [`idn`](https://github.com/deepfryed/idn-ruby).
+
 ## Reserved subdomains
 
 If you issue subdomains for an app there are some that ought to be reserved (i.e. not issued to a user), like `mail` and `www`. The `reserved?` method tells you whether a subdomain name should be reserved. Whether a subdomain is reserved or not is determined by the [ReservedSubdomain gem](https://rubygems.org/gems/reserved_subdomain).

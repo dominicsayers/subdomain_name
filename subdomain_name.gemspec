@@ -13,4 +13,7 @@ Gem::Specification.new do |s|
 
   s.files = `git ls-files lib LICENSE`.split($RS)
   s.require_paths = ['lib']
+
+  s.add_runtime_dependency 'idn-ruby'
+  s.add_runtime_dependency 'reserved_subdomain'
 end
